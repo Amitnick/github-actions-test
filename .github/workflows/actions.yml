@@ -6,6 +6,16 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: List Git Data
+        run: |
+          #GITHUB_SHA --> Commit ID of the specific commit that triggred this workflow
+          echo $GITHUB_SHA 
+          #GITHUB_REPOSITORY --> User Name and Repository Name
+          echo $GITHUB_REPOSITORY
+          #GITHUB_WORKSPACE --> Workspace directory same as default pwd
+          echo $GITHUB_WORKSPACE
+          #github --> object that contains data related to github
+          echo "${{ github }}"
       - name: Checkout
         uses: actions/checkout@v1
       - name: List Files
