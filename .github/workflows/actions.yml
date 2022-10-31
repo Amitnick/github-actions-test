@@ -1,6 +1,6 @@
 name: Actions Workflow
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   run-github-actions:
@@ -14,8 +14,8 @@ jobs:
           echo $GITHUB_REPOSITORY
           #GITHUB_WORKSPACE --> Workspace directory same as default pwd
           echo $GITHUB_WORKSPACE
-          #github --> object that contains data related to github
-          echo "${{ github }}"
+          #github --> Context object that contains data related to github
+          echo "${{ github.token }}"
       - name: Checkout
         uses: actions/checkout@v1
       - name: List Files
