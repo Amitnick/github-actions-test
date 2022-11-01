@@ -27,10 +27,13 @@ jobs:
         run: |
           pwd
           ls -a
-      - name: Simple JS Action
-        id: greet
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: Amit
-      - name: Log Greeting Time
-        run: echo "${{ steps.greet.outputs.time }}"
+      - name: Update file
+        id: file-update
+        run: |
+          echo "This line is added by ${{ github.job }} JOB in ${{ github.workflow }} WORKFLOW" >> README.md
+      - name: Save state
+        id: commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        commit_message: Readme.md updated
+      - name: Log commit_hash
+        run: echo "${{ steps.commit.outputs.commit_hash }}"
