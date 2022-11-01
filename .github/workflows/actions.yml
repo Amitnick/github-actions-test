@@ -39,5 +39,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Readme.md updated
+          branch: master
       - name: Log commit_hash
         run: echo "${{ steps.commit.outputs.commit_hash }}"
