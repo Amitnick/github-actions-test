@@ -23,7 +23,7 @@ jobs:
           #github --> Context object that contains data related to github
           echo "${{ github.token }}"
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           ref: 'master'
       - name: List Files
@@ -37,12 +37,5 @@ jobs:
       - name: Save state
         id: commit
         uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_user_name: Amitnick # defaults to "github-actions[bot]"
-          commit_user_email: amitnikumbh54@gmail.com # defaults to "github-actions[bot]@users.noreply.github.com" 
-          commit_message: Apply automatic changes
-          branch: master
-        env:
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
       - name: Log commit_hash
         run: echo "${{ steps.commit.outputs.commit_hash }}"
