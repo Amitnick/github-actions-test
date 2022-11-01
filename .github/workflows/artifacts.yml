@@ -50,3 +50,12 @@ jobs:
         run: |
           value=`cat math-homework.txt`
           echo The result is $value
+
+  job_4:
+    name: Check Payload
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display payload message
+        if: github.event.client_payload.env == 'prod'
+        run: |
+          echo "${{ github.event.client_payload.msg }}"
