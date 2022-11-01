@@ -24,6 +24,8 @@ jobs:
           echo "${{ github.token }}"
       - name: Checkout
         uses: actions/checkout@v1
+        with:
+          ref: 'master'
       - name: List Files
         run: |
           pwd
