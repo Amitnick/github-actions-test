@@ -38,8 +38,8 @@ jobs:
         id: commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_author_email: amitnikumbh54@gmail.com
-          commit_author_name: amitnick
+          commit_user_name: Amitnick # defaults to "github-actions[bot]"
+          commit_user_email: amitnikumbh54@gmail.com # defaults to "github-actions[bot]@users.noreply.github.com" 
           commit_message: Apply automatic changes
           branch: master
         env:
